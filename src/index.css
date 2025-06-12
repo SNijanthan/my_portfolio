@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sequel: "Sequel", serif;
+  --font-sunFlare: "Sunflare", serif;
+  --font-internet: "LTInternet-Regular", serif;
+}
+
+@font-face {
+  font-family: "Sunflare";
+  src: url("../public/fonts/Sunflare.ttf") format(truetype);
+}
+
+@font-face {
+  font-family: "Sequel";
+  src: url("../public/fonts/Sequel.ttf") format(truetype);
+}
+
+@font-face {
+  font-family: "LTInternet-Regular";
+  src: url("../public/fonts/LTInternet-Regular.ttf") format(truetype);
+}
