@@ -1,8 +1,8 @@
-### 🚀 React Developer Portfolio
+## 🚀 React Developer Portfolio
 
 Welcome to my **React Portfolio** – a personal web application showcasing my skills, projects, and experience as a **Full-Stack developer**. Built using **React.js**, this site reflects my passion for creating dynamic, and user-friendly web interfaces.
 
-## 🛠️ Tech Stack
+### 🛠️ Tech Stack
 
 - ⚛️ React.js
 - 💅 Tailwind CSS
@@ -12,7 +12,7 @@ Welcome to my **React Portfolio** – a personal web application showcasing my s
 
 ---
 
-## 📁 Features
+### 📁 Features
 
 - 👤 About Me Section
 - 🛠 Skills Display
@@ -22,13 +22,13 @@ Welcome to my **React Portfolio** – a personal web application showcasing my s
 
 ---
 
-## 📸 Demo
+### 📸 Demo
 
-[🌐 Live Site]()
+[🌐 Live Site](https://my-portfolio-snijanthans-projects.vercel.app/)
 
 ---
 
-## 🧠 Lessons Learned
+### 🧠 Lessons Learned
 
 - Gained full-stack development experience using the **MERN stack (MongoDB, Express.js, React.js, Node.js)**.
 - Improved my understanding of **component-driven architecture** in React.
@@ -40,7 +40,7 @@ Welcome to my **React Portfolio** – a personal web application showcasing my s
 
 ---
 
-## 📬 Contact
+### 📬 Contact
 
 If you'd like to collaborate, have questions, or just want to say hi 👋, feel free to reach out:
 
