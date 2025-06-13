@@ -11,6 +11,7 @@ const ContactMe = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(name, email, message);
     setName("");
     setEmail("");
     setMessage("");
@@ -22,65 +23,59 @@ const ContactMe = () => {
       initial={{ y: 200, opacity: 0 }}
       animate={isInView ? { y: 0, opacity: 1 } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}
+      id="contact"
     >
-      <div
-        className="flex flex-col items-center w-3/6 m-auto text-center mb-5"
-        id="contact"
-      >
-        <h1 className="font-sequel text-4xl tracking-widest mb-3">CONTACT</h1>
-        <div className="h-1 w-20 rounded-3xl text-center bg-green-700 mb-5"></div>
-        <p className="font-internet text-[1.3rem] mb-5 text-gray-300">
+      <div className="flex flex-col items-center w-full text-center ">
+        <h1 className="font-sequel text-3xl tracking-widest mb-3">CONTACT</h1>
+        <div className="h-1 w-16 rounded-3xl bg-green-700 mb-5"></div>
+        <p className="font-internet text-[1.1rem] mb-5 text-gray-300 max-w-xl">
           Feel free to Contact me by submitting the form below and I will get
-          back to you as soon as possible
+          back to you as soon as possible.
         </p>
       </div>
-      <div className="bg-[#0D1B2A] w-3/6 m-auto mb-5 p-8 font-internet rounded-2xl">
-        <form action="" className="flex flex-col" onSubmit={handleSubmit}>
-          <label htmlFor="" className="my-5 tracking-wider">
-            Name
-          </label>
-          <input
-            className="p-5 border-none rounded tracking-wider bg-black placeholder-[#AAAAAA] focus:outline-none"
-            type="text"
-            name=""
-            id=""
-            placeholder="Enter Your Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+      <div className="flex flex-col justify-evenly md:flex-row  items-center gap-10 mb-10 px-4 w-5/6 m-auto">
+        <div className="bg-[#0D1B2A] w-full md:w-4/5 max-w-[600px] p-5 font-internet rounded-2xl h-full">
+          <form className="flex flex-col h-full" onSubmit={handleSubmit}>
+            <label className="my-3 tracking-wider">Your Name</label>
+            <input
+              className="p-3 border-none placeholder:text-xs rounded bg-black tracking-wider placeholder-[#AAAAAA] focus:outline-none"
+              type="text"
+              placeholder="Enter Your Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <label className="my-3 tracking-wider">Your Email</label>
+            <input
+              className="p-3 border-none rounded bg-black tracking-wider placeholder-[#AAAAAA] focus:outline-none placeholder:text-xs"
+              type="email"
+              placeholder="Enter Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <label className="my-3 tracking-wider">Message</label>
+            <textarea
+              className="p-3 border-none rounded bg-black tracking-wider placeholder-[#AAAAAA] focus:outline-none placeholder:text-xs"
+              rows="7"
+              placeholder="Enter Your Message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            ></textarea>
+            <motion.button
+              className="font-sequel cursor-pointer bg-[#9a0ef1] text-white rounded-lg p-2 mt-5 m-auto px-6"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.5 }}
+            >
+              Submit
+            </motion.button>
+          </form>
+        </div>
+        <div className="w-full md:w-2/5 max-w-[600px] flex justify-center items-center">
+          <img
+            src="/image/contact_Illustration.svg"
+            alt="Contact Illustration"
+            className="w-full h-full object-contain"
           />
-          <label htmlFor="" className="my-5 tracking-wider">
-            Email
-          </label>
-          <input
-            className="p-5 border-none rounded bg-black tracking-wider placeholder-[#AAAAAA] focus:outline-none"
-            type="email"
-            name=""
-            id=""
-            placeholder="Enter Your Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label htmlFor="" className="my-5 tracking-wider">
-            Message
-          </label>
-          <textarea
-            className="p-5 border-none rounded bg-black tracking-wider placeholder-[#AAAAAA] focus:outline-none"
-            name=""
-            id=""
-            cols="5"
-            rows="10"
-            placeholder="Enter Your Message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          ></textarea>
-          <motion.button
-            className="font-sequel cursor-pointer bg-[#9a0ef1] text-white rounded-lg p-3 mt-8 m-auto px-10"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.5 }}
-          >
-            Submit
-          </motion.button>
-        </form>
+        </div>
       </div>
       <div className="h-[1px] opacity-20 bg-gray-400 my-16"></div>
     </motion.div>

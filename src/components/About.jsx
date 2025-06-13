@@ -4,19 +4,21 @@ import { useRef } from "react";
 
 const About = () => {
   const skills = [
-    { name: "HTML", color: "#E34F26" },
-    { name: "CSS", color: "#1572B6" },
-    { name: "JavaScript", color: "#F7DF1E" },
-    { name: "React", color: "#61DAFB" },
-    { name: "Tailwind CSS", color: "#38BDF8" },
-    { name: "Framer Motion", color: "#EC5990" },
-    { name: "Redux Toolkit", color: "#764ABC" },
-    { name: "Firebase", color: "#FFCA28" },
-    { name: "Node.js", color: "#83CD29" },
-    { name: "Express", color: "#333333" },
-    { name: "MongoDB", color: "#47A248" },
-    { name: "Mongoose", color: "#9C6B2D" },
+    { name: "HTML", color: "#e34c26" },
+    { name: "CSS", color: "#264de4" },
+    { name: "JavaScript", color: "#f0db4f" },
+    { name: "React", color: "#61dafb" },
+    { name: "Tailwind CSS", color: "#38bdf8" },
+    { name: "Framer Motion", color: "#e64c88" },
+    { name: "Redux Toolkit", color: "#764abc" },
+    { name: "Firebase", color: "#ffa000" },
+    { name: "Node.js", color: "#68a063" },
+    { name: "Express", color: "#005551" },
+    { name: "MongoDB", color: "#4db33d" },
+    { name: "Mongoose", color: "#800000" },
     { name: "JWT Authentication", color: "#ed9c28" },
+    { name: "Git", color: "#ed9c28" },
+    { name: "GitHub", color: "#ed9c28" },
   ];
 
   const ref = useRef(null);
@@ -42,7 +44,6 @@ const About = () => {
         </p>
       </div>
       <div className="flex justify-between w-5/6 m-auto">
-        {/* Left Section */}
         <div className="w-5/6">
           <h4 className="text-2xl font-sequel tracking-wider mb-3">
             Get to know me!
@@ -78,22 +79,20 @@ const About = () => {
             </Link>
           </motion.button>
         </div>
-
-        {/* Right Section - Skills */}
         <div className="w-3/6">
           <h4 className="text-2xl font-sequel tracking-wider mb-5">
             My Skills
           </h4>
-          <div className="text-gray-300 flex flex-wrap items-center font-internet ">
+          <div className="text-gray-300 flex flex-wrap items-center font-sequel">
             {skills.map((skill, index) => (
               <motion.p
                 key={index}
-                className="bg-gray-500 text-sm transition-all duration-300 rounded-2xl px-6 py-3 my-3 mr-6 cursor-pointer"
+                className="bg-white/10 backdrop-blur-xl border border-white/30 text-sm text-white shadow-[inset_0_0_0.5px_rgba(255,255,255,0.2)] rounded-2xl px-6 py-3 my-3 mr-6 cursor-pointer transition duration-300 hover:shadow-xl"
                 whileHover={{
-                  backgroundColor: skill.color,
+                  backgroundColor: skill.color || "rgba(255, 255, 255, 0.3)",
                   color: "black",
                   scale: 1.1,
-                  duration: 0.5,
+                  transition: { duration: 0.3 },
                 }}
               >
                 {skill.name}
