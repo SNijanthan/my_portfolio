@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 const NavBar = () => {
   return (
     <>
-      <div className="flex justify-between items-center p-2 fixed top-0 left-0 w-full z-50 bg-black text-white">
+      <div className="flex justify-between items-center p-4 fixed top-0 left-0 w-full z-50 bg-black text-white">
         <div className="flex justify-center ml-10">
           <motion.h1
             className=" text-3xl overflow-hidden whitespace-nowrap text-green-700 font-sequel"

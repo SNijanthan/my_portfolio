@@ -1,5 +1,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { Slide, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import emailjs from "@emailjs/browser";
 
 const ContactMe = () => {
   const [name, setName] = useState("");
@@ -7,14 +10,56 @@ const ContactMe = () => {
   const [message, setMessage] = useState("");
 
   const ref = useRef(null);
+  const form = useRef();
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const handleSubmit = (e) => {
+  const showToast = (name, email, message) => {
+    if (name.length === 0 || email.length === 0 || message.length === 0) {
+      return toast.error("Try again? Pigeon got lost 🕊️", {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        theme: "dark",
+        transition: Slide,
+      });
+    }
+    toast.success("Carrier pigeons flew true! 🕊️📬", {
+      toastClassName: "text-xs",
+      position: "top-center",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      theme: "dark",
+      transition: Slide,
+    });
+  };
+
+  const sendEmail = (e) => {
     e.preventDefault();
-    console.log(name, email, message);
+    emailjs
+      .sendForm(
+        "service_ys7ga3z",
+        "template_zzx41ge",
+        form.current,
+        "AJT5hGDlnQJZDp-xH"
+      )
+      .then(
+        (result) => {
+          console.log("Success:", result.text);
+        },
+        (error) => {
+          console.log("Error:", error.text);
+        }
+      );
+
     setName("");
     setEmail("");
     setMessage("");
+
+    e.target.reset();
   };
 
   return (
@@ -35,14 +80,20 @@ const ContactMe = () => {
       </div>
       <div className="flex flex-col justify-evenly md:flex-row  items-center gap-10 mb-10 px-4 w-5/6 m-auto">
         <div className="bg-[#0D1B2A] w-full md:w-4/5 max-w-[600px] p-5 font-internet rounded-2xl h-full">
-          <form className="flex flex-col h-full" onSubmit={handleSubmit}>
+          <form
+            className="flex flex-col h-full"
+            onSubmit={sendEmail}
+            ref={form}
+          >
             <label className="my-3 tracking-wider">Your Name</label>
             <input
               className="p-3 border-none placeholder:text-xs rounded bg-black tracking-wider placeholder-[#AAAAAA] focus:outline-none"
               type="text"
               placeholder="Enter Your Name"
+              required
               value={name}
               onChange={(e) => setName(e.target.value)}
+              name="name"
             />
             <label className="my-3 tracking-wider">Your Email</label>
             <input
@@ -50,7 +101,9 @@ const ContactMe = () => {
               type="email"
               placeholder="Enter Your Email"
               value={email}
+              required
               onChange={(e) => setEmail(e.target.value)}
+              name="email"
             />
             <label className="my-3 tracking-wider">Message</label>
             <textarea
@@ -58,15 +111,19 @@ const ContactMe = () => {
               rows="7"
               placeholder="Enter Your Message"
               value={message}
+              required
               onChange={(e) => setMessage(e.target.value)}
+              name="message"
             ></textarea>
             <motion.button
               className="font-sequel cursor-pointer bg-[#9a0ef1] text-white rounded-lg p-2 mt-5 m-auto px-6"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.5 }}
+              onClick={() => showToast(name, email, message)}
             >
               Submit
             </motion.button>
+            <ToastContainer />
           </form>
         </div>
         <div className="w-full md:w-2/5 max-w-[600px] flex justify-center items-center">
